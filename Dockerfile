@@ -8,4 +8,5 @@ RUN ./configure --prefix=/usr/share/nginx --sbin-path=/sbin/nginx --modules-path
 RUN make && make install
 RUN apk del build-base make zlib-dev openssl-dev libxml2-dev libxslt-dev geoip-dev pcre2-dev && apk add pcre2 zlib libxslt geoip libssl3 libcrypto3 tini
 ENTRYPOINT ["/sbin/tini", "--"]
+EXPOSE 80
 CMD nginx -g "daemon off;"
